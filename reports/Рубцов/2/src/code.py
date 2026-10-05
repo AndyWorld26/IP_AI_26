@@ -14,8 +14,6 @@ import numpy as np
 from PIL import Image
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-print(f"Используемое устройство: {device}")
-
 transform_cpu = transforms.Compose([
     transforms.ToTensor()
 ])
@@ -89,7 +87,6 @@ accuracy = 100 * correct / total
 print(f'\nAccuracy on test images: {accuracy:.2f}%')
 
 def predict_custom_image(image_path, model):
-    """Функция загрузки и классификации произвольной картинки"""
     model.eval()
     image = Image.open(image_path).convert('RGB')
 
